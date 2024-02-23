@@ -1,13 +1,35 @@
 function verificaChuteValido() {
     const numero = +chute
 
-    if (chuteInvalido(numero)) {
-        elementoChute.innerHTML += `
-        <div>Valor inválido</div>
-        `
+    // if (chuteInvalido(numero)) {
+    //     elementoChute.innerHTML += `
+    //     <div>Valor inválido</div>
+    //     `
 
-        return
+    //     return
+    // }
+
+    if (chuteInvalido(numero)) {
+        if (chute.toUpperCase() === "FINALIZA") {
+
+            document.body.innerHTML =
+                `
+                <h2>Jogo encerrado.!!!</h2>
+                <h3>Pressione o botão para jogar novamente</h3>
+                <button id="jogar-novamente" class="btn-jogar" >Jogar novamente</button>
+                `
+                document.body.style.backgroundColor = "black";
+                document.querySelector('.btn-jogar').style.backgroundColor = "black";
+                
+        } else {
+
+            elementoChute.innerHTML += `
+                <div>Valor Inválido</div>
+            `;
+        }
+
     }
+
 
     if (numeroMaiorOuMenorQueOValorPermitido(numero)) {
         elementoChute.innerHTML += `
